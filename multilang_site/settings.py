@@ -4,6 +4,7 @@ Importation des modules nécessaires
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -74,7 +76,7 @@ WSGI_APPLICATION = 'multilang_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'blog.sqlite3',
     }
 }
 
@@ -101,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'fr-fr'
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 
@@ -109,10 +111,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+USE_L10N = True
+
 # Languages configuration
 LANGUAGES = [
-    ('en', 'English'),
-    ('fr', 'French'),
+    ('en', _('Anglais')),
+    ('fr', _('Français')),
 ]
 
 LOCALE_PATHS = [
@@ -121,16 +125,14 @@ LOCALE_PATHS = [
 
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'en'},
         {'code': 'fr'},
+        {'code': 'en'},
     ),
     'default': {
         'fallback': 'fr',
         'hide_untranslated': False,
     }
 }
-
-SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
