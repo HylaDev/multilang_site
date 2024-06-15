@@ -22,4 +22,4 @@ class Posts(TranslatableModel):
     publication_date = models.DateTimeField()
 
     def __str__(self):
-        return self.title
+        return self.title   # pylint: disable=maybe-no-member

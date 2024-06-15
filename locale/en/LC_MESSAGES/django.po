@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 20:17+0200\n"
+"POT-Creation-Date: 2024-06-15 10:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1232,19 +1232,22 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
-#: multilang_site/settings.py:118
-msgid "Anglais"
-msgstr "English"
+#: multilang_site/settings.py:121
+msgid "English"
+msgstr ""
 
-#: multilang_site/settings.py:119
-msgid "Français"
-msgstr "French"
+#: multilang_site/settings.py:122
+msgid "French"
+msgstr ""
 
-# static text translator
 #: templates/blog/accueil.html:8
-msgid "Bienvenu sur mon blog"
-msgstr "Welcome to my blog"
+msgid "Welcome to my multilingual blog"
+msgstr ""
 
 #: templates/blog/accueil.html:17
-msgid "Langue"
-msgstr "Language"
+msgid "Available languages"
+msgstr ""
+
+#: templates/blog/accueil.html:42
+msgid "No post found"
+msgstr ""

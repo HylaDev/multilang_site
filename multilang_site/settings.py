@@ -5,6 +5,7 @@ Importation des modules nécessaires
 from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,12 +15,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_dogige50=04=sxp@h-^c6xz24pecg75(fjsx9ztiv&+jsv1&f'
+SECRET_KEY = os.environ.get("SECRET_KEY", "2323837jk43")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -31,16 +36,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'django.contrib.sites',
-    'parler',
+
+    # Local applictions
+    'main.apps.MainConfig',
+    # Third-party applications
     'rosetta',
-    'main',
+    'parler',
+    'corsheaders',
+    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -69,15 +78,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'multilang_site.wsgi.application'
 
+CORS_ALLOWED_ORIGINS: True
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'blog.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgres://doscod:Dossajunior67.@localhost:5432/blogdb',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
@@ -103,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'fr'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -115,8 +126,8 @@ USE_L10N = True
 
 # Languages configuration
 LANGUAGES = [
-    ('en', _('Anglais')),
-    ('fr', _('Français')),
+    ('en', _('English')),
+    ('fr', _('French')),
 ]
 
 LOCALE_PATHS = [
@@ -125,15 +136,15 @@ LOCALE_PATHS = [
 
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'fr'},
         {'code': 'en'},
+        {'code': 'fr'},
     ),
     'default': {
-        'fallback': 'fr',
+        'fallback': 'en',
         'hide_untranslated': False,
     }
 }
-
+# SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 20:17+0200\n"
+"POT-Creation-Date: 2024-06-15 10:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1222,7 +1222,7 @@ msgstr ""
 
 #: multilang_env/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:239
 msgid "Get started with Django"
-msgstr ""
+msgstr "Commencer avec django"
 
 #: multilang_env/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:247
 msgid "Django Community"
@@ -1232,21 +1232,25 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
-#: multilang_site/settings.py:118
-msgid "Anglais"
-msgstr ""
+#: multilang_site/settings.py:121
+msgid "English"
+msgstr "Anglais"
 
-#: multilang_site/settings.py:119
-msgid "Français"
-msgstr ""
+#: multilang_site/settings.py:122
+msgid "French"
+msgstr "Français"
 
 #: templates/blog/accueil.html:8
-msgid "Bienvenu sur mon blog"
-msgstr ""
+msgid "Welcome to my multilingual blog"
+msgstr "Bienvenue sur mon blog multilingue"
 
 #: templates/blog/accueil.html:17
-msgid "Langue"
-msgstr ""
+msgid "Available languages"
+msgstr "Langues disponibles"
+
+#: templates/blog/accueil.html:42
+msgid "No post found"
+msgstr "Aucun post trouvé"
 
 #~ msgid "title"
 #~ msgstr "Titre"
