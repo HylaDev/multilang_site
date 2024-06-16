@@ -8,6 +8,14 @@
 
 ## Création d'un superuser 
     python manage.py createsuperuser
+    puis suivez les instructions pour créer le superutilisateur.
+    Un superutilisateur avec les informations d'identification suivantes a été créé : nom d'utilisateur=doscod et mot de passe=doscod
     
 ## Lancer le server
     python manage.py runserver
+
+## Espace admin
+    http://127.0.0.1:8000/admin/
+
+## Traduction des éléments statiques
+    rosetta a été utilisée pour faciliter la traduction de mots et de phrases statiques. Allez sur http://127.0.0.1:8000/rosetta/ pour accéder à son espace d'administration.
