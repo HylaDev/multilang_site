@@ -13,7 +13,7 @@ class Posts(TranslatableModel):
         publication_date (Date): Date de la publication
 
     Methods:
-        __str__: Retourne le nom de la saison sur l'espace admin
+        __str__: Retourne le titre de la publication sur l'espace admin
     """
     translations = TranslatedFields(
         title=models.CharField(max_length=50),
