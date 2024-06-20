@@ -1,3 +1,6 @@
+## Pré-requis
+    - Django
+    - Python
 ## Installation des dépendances
     pip install -r requirements.txt
 
